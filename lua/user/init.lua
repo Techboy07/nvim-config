@@ -1,0 +1,7 @@
+require('user.lualine')
+require('user.mason')
+require('user.remap')
+require('user.colors')
+require('user.packer')
+require('user.prettier')
+require('user.telescope')

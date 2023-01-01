@@ -1,0 +1,22 @@
+{
+  "coc.preferences.enableWatchman": false,
+  "coc.preferences.watchmanPath": "",
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "trace.server": "verbose",
+      "filetypes": ["go"]
+    }
+  },
+  "languageserver": {
+    "lua": {
+      "command": "lua-language-server",
+      "filetypes": ["lua"]
+    }
+  },
+  "coc.preferences.formatOnSaveFiletypes": ["lua"],
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnSave": true,
+  "coc.formatter.lua": "stylua"
+}
