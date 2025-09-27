@@ -10,4 +10,3 @@ vim.cmd([[
 -- Example: use 2 spaces
 vim.g["prettier#config#tab_width"] = 2
 vim.g["prettier#config#use_tabs"] = 'false'
-

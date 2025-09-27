@@ -7,16 +7,58 @@
       "rootPatterns": ["go.mod"],
       "trace.server": "verbose",
       "filetypes": ["go"]
-    }
-  },
-  "languageserver": {
+    },
     "lua": {
       "command": "lua-language-server",
       "filetypes": ["lua"]
     }
   },
-  "coc.preferences.formatOnSaveFiletypes": ["lua"],
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSave": true,
-  "coc.formatter.lua": "stylua"
+  "coc.preferences.formatOnSaveFiletypes": [
+    "lua",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    "json",
+    "html",
+    "css"
+  ],
+  "coc.formatter": {
+    "lua": {
+      "command": "stylua",
+      "args": ["-"],
+      "rootPatterns": [".stylua.toml", "stylua.toml"]
+    },
+    "javascript": {
+      "command": "prettier",
+      "args": ["--stdin-filepath", "%filepath"]
+    },
+    "typescript": {
+      "command": "prettier",
+      "args": ["--stdin-filepath", "%filepath"]
+    },
+    "javascriptreact": {
+      "command": "prettier",
+      "args": ["--stdin-filepath", "%filepath"]
+    },
+    "typescriptreact": {
+      "command": "prettier",
+      "args": ["--stdin-filepath", "%filepath"]
+    },
+    "json": {
+      "command": "prettier",
+      "args": ["--stdin-filepath", "%filepath"]
+    },
+    "html": {
+      "command": "prettier",
+      "args": ["--stdin-filepath", "%filepath"]
+    },
+    "css": {
+      "command": "prettier",
+      "args": ["--stdin-filepath", "%filepath"]
+    }
+  },
+  "snippets.ultisnips.pythonPrompt": false
 }
