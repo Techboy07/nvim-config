@@ -60,5 +60,7 @@
       "args": ["--stdin-filepath", "%filepath"]
     }
   },
-  "snippets.ultisnips.pythonPrompt": false
+  "snippets.ultisnips.pythonPrompt": false,
+  "snippets.priority": 99,
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snippets"
 }

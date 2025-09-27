@@ -28,3 +28,17 @@ vim.keymap.set("n", "<leader>v", ":vsplit<CR>", { silent = true, noremap = true 
 
 -- Horizontal split
 vim.keymap.set("n", "<leader>s", ":split<CR>", { silent = true, noremap = true })
+
+
+-- Open terminal with Ctrl+t
+vim.keymap.set("n", "<C-t>", ":terminal<CR>", { noremap = true, silent = true })
+
+-- <leader>t → open new tab
+vim.keymap.set("n", "<leader>t", ":tabnew<CR>", { noremap = true, silent = true })
+
+-- <leader>. → next tab
+vim.keymap.set("n", "<leader>.", ":tabnext<CR>", { noremap = true, silent = true })
+
+-- <leader>, → previous tab
+vim.keymap.set("n", "<leader>,", ":tabprevious<CR>", { noremap = true, silent = true })
+
