@@ -1,0 +1,18 @@
+snippet clg "prints console.log()" b
+console.log($1) 
+endsnippet
+
+snippet af "arrow function" b
+($1)=>{}
+endsnippet
+
+snippet asaf "arrow function" b
+async ($1)=>{}
+endsnippet
+
+
+snippet fnfile "export a function named after the file" b
+export function `!p snip.rv = snip.basename`($1) {
+  $0
+}
+endsnippet
