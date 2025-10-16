@@ -6,7 +6,6 @@ vim.opt.incsearch = true
 
 vim.opt.clipboard = "unnamedplus"
 
-vim.opt.foldmethod = 'indent'
 
 --vim.opt.nofoldenable = true
 vim.opt.foldcolumn = '1'
@@ -40,3 +39,6 @@ vim.opt.relativenumber = false
 
 vim.g.NERDTreeShowHidden = 1
 vim.g.coc_enable_watchman = 0
+
+vim.fn.setenv("VIMRUNTIME", nil)
+vim.fn.setenv("VIM", nil)

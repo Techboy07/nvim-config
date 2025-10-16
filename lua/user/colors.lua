@@ -3,7 +3,8 @@
 vim.o.number = true            -- show line numbers
 vim.o.compatible = false       -- same as 'set nocompatible'
 -- Colorscheme
-vim.cmd.colorscheme 'catppuccin-mocha'
+vim.cmd.colorscheme 'catppuccin-latte'
+--vim.cmd.colorscheme 'onedark'
 vim.o.compatible = false
 vim.o.background = "dark"
 -- Keymaps
@@ -16,6 +17,9 @@ vim.keymap.set("i", "<CR>", function()
 end, { expr = true, silent = true })
 
 require("nvim-web-devicons").setup {
-  default = true
-}
-
+default = true,
+ }
+--require('onedark').setup {
+ --   style = 'darker'
+--}
+--require('onedark').load()

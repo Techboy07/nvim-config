@@ -1,32 +1,85 @@
 {
-  "coc.preferences.enableWatchman": false,
-  "coc.preferences.watchmanPath": "",
-  "languageserver": {
-    "go": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod"],
-      "trace.server": "verbose",
-      "filetypes": ["go"]
-    },
-    "lua": {
-      "command": "lua-language-server",
-      "filetypes": ["lua"]
-    }
-  },
-  "coc.preferences.formatOnType": true,
-  "coc.preferences.formatOnSave": true,
-  "coc.formatter.lua": "stylua",
-  "snippets.ultisnips.pythonPrompt": false,
+  "suggest.enablePreview": true,
+  "suggest.snippetIndicator": "",
+  "suggest.maxCompleteItemCount": 50,
+
+  "diagnostic.enable": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.signOffset": 9999,
+  "diagnostic.displayByAle": false,
+
   "coc.preferences.formatOnSaveFiletypes": [
-    "lua",
     "javascript",
-    "typescript",
     "javascriptreact",
+    "typescript",
     "typescriptreact",
     "json",
+    "jsonc",
+    "yaml",
+    "markdown",
+    "lua",
     "html",
     "css"
   ],
+
+  "eslint.enable": true,
+  "eslint.run": "onSave",
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+
+  "prettier.enable": true,
+  "prettier.requireConfig": false,
+  "prettier.trailingComma": "es5",
+  "prettier.singleQuote": true,
+  "prettier.semi": true,
+
+  "tsserver.enable": true,
+  "tsserver.formatOnType": true,
+  "tsserver.log": "off",
+  "tsserver.pluginPaths": [],
+
+  "json.format.enable": true,
+  "json.schemas": [
+    {
+      "fileMatch": ["package.json"],
+      "url": "https://json.schemastore.org/package.json"
+    },
+    {
+      "fileMatch": ["tsconfig.json", "tsconfig.*.json"],
+      "url": "https://json.schemastore.org/tsconfig.json"
+    }
+  ],
+
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact",
+    "javascriptreact": "javascriptreact",
+    "typescriptreact": "typescriptreact"
+  },
+
+  "git.enableGutters": true,
+  "git.addGBlameToVirtualText": true,
+  "snippets.ultisnips.enable": false,
+  "snippets.userSnippetsDirectory": "C:\\d\\Swegz Tradelink\\AppData\\Local\\nvim\\snippets\\",
+  "snippets.ultisnips.directories": ["UltiSnips"],
+
+  "pairs.enableCharacters": ["(", "[", "{", "\"", "'"],
+
+  "yaml.format.enable": true,
+  "yaml.validate": true,
+  "yaml.hover": true,
+  "yaml.completion": true,
+
+  "markdownlint.config": {
+    "default": true,
+    "line-length": false,
+    "no-duplicate-heading": true
+  },
   "coc.formatter": {
     "lua": {
       "command": "stylua",
@@ -64,5 +117,7 @@
   },
   "snippets.ultisnips.pythonPrompt": false,
   "snippets.priority": 99,
-  "snippets.userSnippetsDirectory": "~/.config/nvim/snippets"
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
