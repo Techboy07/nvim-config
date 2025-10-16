@@ -15,3 +15,30 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find f
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
+-- Remap <leader>p to save the file
+vim.keymap.set("n", "<leader>p", ":w<CR>", { noremap = true, silent = true })
+
+
+vim.keymap.set("n", "<leader>f", ":call CocActionAsync('format')<CR>", { silent = true })
+
+
+-- Vertical split
+vim.keymap.set("n", "<leader>v", ":vsplit<CR>", { silent = true, noremap = true })
+
+-- Horizontal split
+vim.keymap.set("n", "<leader>s", ":split<CR>", { silent = true, noremap = true })
+
+
+-- Open terminal with Ctrl+t
+vim.keymap.set("n", "<C-t>", ":terminal<CR>", { noremap = true, silent = true })
+
+-- <leader>t → open new tab
+vim.keymap.set("n", "<leader>t", ":tabnew<CR>", { noremap = true, silent = true })
+
+-- <leader>. → next tab
+vim.keymap.set("n", "<leader>.", ":tabnext<CR>", { noremap = true, silent = true })
+
+-- <leader>, → previous tab
+vim.keymap.set("n", "<leader>,", ":tabprevious<CR>", { noremap = true, silent = true })
+
