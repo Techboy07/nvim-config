@@ -18,5 +18,6 @@
   "coc.preferences.formatOnSaveFiletypes": ["lua"],
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSave": true,
-  "coc.formatter.lua": "stylua"
+  "coc.formatter.lua": "stylua",
+  "snippets.ultisnips.pythonPrompt": false
 }
