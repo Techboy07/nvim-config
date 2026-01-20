@@ -42,3 +42,5 @@ vim.keymap.set("n", "<leader>.", ":tabnext<CR>", { noremap = true, silent = true
 -- <leader>, → previous tab
 vim.keymap.set("n", "<leader>,", ":tabprevious<CR>", { noremap = true, silent = true })
 
+-- Exit terminal mode safely
+vim.keymap.set("t", "<C-q>", "<C-\\><C-n>", { noremap = true, silent = true })
