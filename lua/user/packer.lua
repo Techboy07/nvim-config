@@ -39,4 +39,10 @@ use ('navarasu/onedark.nvim')
 	}
 
 	use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+
+	use({
+  "L3MON4D3/LuaSnip",
+		tag = "v2.*",
+  run = "make install_jsregexp",
+  })
 end)

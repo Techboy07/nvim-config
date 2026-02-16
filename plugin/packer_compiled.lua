@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  LuaSnip = {
+    loaded = true,
+    path = "C:\\Users\\Swegz Tradelink\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
   ["coc.nvim"] = {
     loaded = true,
     path = "C:\\Users\\Swegz Tradelink\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\coc.nvim",

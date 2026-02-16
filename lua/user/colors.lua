@@ -19,7 +19,5 @@ end, { expr = true, silent = true })
 require("nvim-web-devicons").setup {
 default = true,
  }
---require('onedark').setup {
- --   style = 'darker'
---}
+--require('onedark').setup {style = 'darker'}
 --require('onedark').load()

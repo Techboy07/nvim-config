@@ -6,3 +6,5 @@ require('user.packer')
 require('user.prettier')
 require('user.telescope')
 require('user.ufo')
+--require("user.luasnip")
+

@@ -43,3 +43,16 @@ vim.keymap.set("n", "<leader>.", ":tabnext<CR>", { noremap = true, silent = true
 
 -- <leader>, → previous tab
 vim.keymap.set("n", "<leader>,", ":tabprevious<CR>", { noremap = true, silent = true })
+
+-- Exit terminal mode safely
+vim.keymap.set("t", "<C-q>", "<C-\\><C-n>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>nf", ":NERDTreeFind ")
+vim.keymap.set("n", "<leader>nn", ":NERDTreeFocus<CR>")
+
+
+
+vim.keymap.set("n", "<C-Left>",  "<C-w>h", { desc = "Move to left window" })
+vim.keymap.set("n", "<C-Down>",  "<C-w>j", { desc = "Move to lower window" })
+vim.keymap.set("n", "<C-Up>",    "<C-w>k", { desc = "Move to upper window" })
+vim.keymap.set("n", "<C-Right>", "<C-w>l", { desc = "Move to right window" })
