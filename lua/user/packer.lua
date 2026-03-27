@@ -33,7 +33,6 @@ return require('packer').startup(function(use)
 
 	use('DaikyXendo/nvim-material-icon')
 	use('ryanoasis/vim-devicons')
-	use('ethancarlsson/nvim-hurl.nvim')
 	use('catppuccin/nvim')
 
 	use('ojroques/nvim-osc52')
@@ -50,4 +49,5 @@ return require('packer').startup(function(use)
 		tag = "v2.*",
 		run = "make install_jsregexp",
 	})
+	use(require("plugin.hurl"))
 end)

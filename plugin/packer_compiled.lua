@@ -84,6 +84,15 @@ _G.packer_plugins = {
     path = "/home/dev/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
   },
+  ["hurl.nvim"] = {
+    after = { "nui.nvim", "render-markdown.nvim" },
+    config = { "\27LJ\2\ný\5\0\0\6\0#\0<6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\0035\4\a\0=\4\b\0035\4\t\0=\4\n\3=\3\v\0025\3\f\0=\3\r\2B\0\2\0016\0\14\0009\0\15\0009\0\16\0\18\1\0\0'\3\17\0'\4\18\0'\5\19\0B\1\4\1\18\1\0\0'\3\17\0'\4\20\0'\5\21\0B\1\4\1\18\1\0\0'\3\17\0'\4\22\0'\5\23\0B\1\4\1\18\1\0\0'\3\17\0'\4\24\0'\5\25\0B\1\4\1\18\1\0\0'\3\17\0'\4\26\0'\5\27\0B\1\4\1\18\1\0\0'\3\17\0'\4\28\0'\5\29\0B\1\4\1\18\1\0\0'\3\17\0'\4\30\0'\5\31\0B\1\4\1\18\1\0\0'\3 \0'\4!\0'\5\"\0B\1\4\1K\0\1\0\20:HurlRunner<CR>\14<leader>h\6v\29<cmd>HurlVeryVerbose<CR>\15<leader>tV\25<cmd>HurlVerbose<CR>\15<leader>tv\28<cmd>HurlToggleMode<CR>\15<leader>tm\29<cmd>HurlRunnerToEnd<CR>\15<leader>tE\31<cmd>HurlRunnerToEntry<CR>\15<leader>te\26<cmd>HurlRunnerAt<CR>\14<leader>a\24<cmd>HurlRunner<CR>\14<leader>A\6n\bset\vkeymap\bvim\rmappings\1\0\3\15prev_panel\n<C-p>\15next_panel\n<C-n>\nclose\6q\15formatters\bxml\1\5\0\0\ttidy\t-xml\a-i\a-q\thtml\1\4\0\0\rprettier\r--parser\thtml\tjson\1\0\3\tjson\0\bxml\0\thtml\0\1\2\0\0\ajq\1\0\5\tmode\nsplit\22show_notification\1\15formatters\0\ndebug\1\rmappings\0\nsetup\thurl\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/dev/.local/share/nvim/site/pack/packer/opt/hurl.nvim",
+    url = "https://github.com/jellydn/hurl.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/dev/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -104,6 +113,15 @@ _G.packer_plugins = {
     path = "/home/dev/.local/share/nvim/site/pack/packer/start/nerdtree",
     url = "https://github.com/preservim/nerdtree"
   },
+  ["nui.nvim"] = {
+    load_after = {
+      ["hurl.nvim"] = true
+    },
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/dev/.local/share/nvim/site/pack/packer/opt/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
+  },
   nvim = {
     loaded = true,
     path = "/home/dev/.local/share/nvim/site/pack/packer/start/nvim",
@@ -113,11 +131,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/dev/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
-  },
-  ["nvim-hurl.nvim"] = {
-    loaded = true,
-    path = "/home/dev/.local/share/nvim/site/pack/packer/start/nvim-hurl.nvim",
-    url = "https://github.com/ethancarlsson/nvim-hurl.nvim"
   },
   ["nvim-material-icon"] = {
     loaded = true,
@@ -159,6 +172,17 @@ _G.packer_plugins = {
     path = "/home/dev/.local/share/nvim/site/pack/packer/start/promise-async",
     url = "https://github.com/kevinhwang91/promise-async"
   },
+  ["render-markdown.nvim"] = {
+    config = { "\27LJ\2\np\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\15file_types\1\0\1\15file_types\0\1\2\0\0\rmarkdown\nsetup\20render-markdown\frequire\0" },
+    load_after = {
+      ["hurl.nvim"] = true
+    },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/dev/.local/share/nvim/site/pack/packer/opt/render-markdown.nvim",
+    url = "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/dev/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -197,6 +221,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'render-markdown.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType hurl ++once lua require("packer.load")({'hurl.nvim'}, { ft = "hurl" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
