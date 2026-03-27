@@ -78,6 +78,26 @@ Or install CoC extensions manually:
 :CocInstall coc-json coc-tsserver coc-prettier coc-lua
 ```
 
+Ensure C compiler is installed
+
+```bash
+# on Ubuntu or debian based install with apt
+sudo apt update
+sudo apt install build-essential
+```
+
+Install Treesitter ClI
+
+```bash
+npm install -g tree-sitter-cli
+```
+
+Then open neovim and Run
+
+```vim
+:TSUpdate
+```
+
 ## Keymaps
 
 ### Leader Key
@@ -86,79 +106,79 @@ The leader key is set to **Space** (`<leader>` = ` `)
 
 ### File Navigation
 
-| Keymap | Description |
-|--------|-------------|
-| `<leader>n` | Toggle NERDTree |
-| `<C-n>` | Open NERDTree |
+| Keymap       | Description                   |
+| ------------ | ----------------------------- |
+| `<leader>n`  | Toggle NERDTree               |
+| `<C-n>`      | Open NERDTree                 |
 | `<leader>nf` | Find current file in NERDTree |
-| `<leader>nn` | Focus NERDTree |
-| `<leader>ff` | Fuzzy find files |
-| `<leader>fg` | Live grep |
-| `<leader>fb` | Search buffers |
-| `<leader>fh` | Search help tags |
+| `<leader>nn` | Focus NERDTree                |
+| `<leader>ff` | Fuzzy find files              |
+| `<leader>fg` | Live grep                     |
+| `<leader>fb` | Search buffers                |
+| `<leader>fh` | Search help tags              |
 
 ### Window Management
 
-| Keymap | Description |
-|--------|-------------|
-| `<leader>v` | Vertical split |
-| `<leader>s` | Horizontal split |
-| `<C-Left>` | Move to left window |
-| `<C-Down>` | Move to lower window |
-| `<C-Up>` | Move to upper window |
+| Keymap      | Description          |
+| ----------- | -------------------- |
+| `<leader>v` | Vertical split       |
+| `<leader>s` | Horizontal split     |
+| `<C-Left>`  | Move to left window  |
+| `<C-Down>`  | Move to lower window |
+| `<C-Up>`    | Move to upper window |
 | `<C-Right>` | Move to right window |
 
 ### Tab Management
 
-| Keymap | Description |
-|--------|-------------|
-| `<leader>t` | New tab |
-| `<leader>.` | Next tab |
+| Keymap      | Description  |
+| ----------- | ------------ |
+| `<leader>t` | New tab      |
+| `<leader>.` | Next tab     |
 | `<leader>,` | Previous tab |
 
 ### Code Folding
 
-| Keymap | Description |
-|--------|-------------|
-| `zR` | Open all folds |
-| `zM` | Close all folds |
+| Keymap | Description     |
+| ------ | --------------- |
+| `zR`   | Open all folds  |
+| `zM`   | Close all folds |
 
 ### HTTP Client (HURL)
 
-| Keymap | Description |
-|--------|-------------|
-| `<leader>hy` | Run HURL file and yank response |
-| `<leader>hr` | Run HURL file in split window |
+| Keymap       | Description                       |
+| ------------ | --------------------------------- |
+| `<leader>hy` | Run HURL file and yank response   |
+| `<leader>hr` | Run HURL file in split window     |
 | `<leader>hv` | Run HURL file with verbose output |
-| `<leader>hh` | Run curl request from cursor URL |
+| `<leader>hh` | Run curl request from cursor URL  |
 
 ### Git Operations
 
-| Keymap | Description |
-|--------|-------------|
+| Keymap       | Description                |
+| ------------ | -------------------------- |
 | `<leader>gs` | Open Git status (Fugitive) |
-| `<leader>D` | Delete current file |
+| `<leader>D`  | Delete current file        |
 
 ### Utilities
 
-| Keymap | Description |
-|--------|-------------|
-| `<leader>p` | Save file |
-| `<leader>f` | Format file |
-| `<leader>R` | Reload Neovim config |
-| `<leader>c` | Copy to system clipboard |
-| `<leader>cc` | Copy line to clipboard |
-| `<C-t>` | Open terminal |
-| `<C-q>` | Exit terminal mode safely |
-| `<leader>u` | Toggle Undotree |
+| Keymap       | Description               |
+| ------------ | ------------------------- |
+| `<leader>p`  | Save file                 |
+| `<leader>f`  | Format file               |
+| `<leader>R`  | Reload Neovim config      |
+| `<leader>c`  | Copy to system clipboard  |
+| `<leader>cc` | Copy line to clipboard    |
+| `<C-t>`      | Open terminal             |
+| `<C-q>`      | Exit terminal mode safely |
+| `<leader>u`  | Toggle Undotree           |
 
 ### Snippets (LuaSnip)
 
-| Keymap | Description |
-|--------|-------------|
-| `<C-K>` | Expand snippet |
-| `<C-L>` | Jump forward in snippet |
-| `<C-J>` | Jump backward in snippet |
+| Keymap  | Description                     |
+| ------- | ------------------------------- |
+| `<C-K>` | Expand snippet                  |
+| `<C-L>` | Jump forward in snippet         |
+| `<C-J>` | Jump backward in snippet        |
 | `<C-E>` | Change choice in choice snippet |
 
 ## Configuration Structure
