@@ -49,5 +49,5 @@ return require('packer').startup(function(use)
 		tag = "v2.*",
 		run = "make install_jsregexp",
 	})
-	use(require("plugin.hurl"))
+	use(require("plugins.hurl"))
 end)

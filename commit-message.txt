@@ -1,7 +1,6 @@
-doc: update README with CoC build and Mason instructions
+refactor: migrate hurl plugin to lua/plugins directory
 
-* Added CoC build step using `npm ci` for Packer installation path
-* Included recommended language servers: lua-language-server, prettierd, eslint-lsp
-* Updated directory structure to reflect treesitter.lua moved to lua/user/
-* Added material.lua and commit-message.txt to file tree
-* Removed test.js and cleaned up plugin configurations
+* Move hurl.nvim plugin spec from plugin/hurl.lua to lua/plugins/hurl.lua
+* Update packer.lua to require plugins.hurl instead of plugin.hurl
+* Remove deprecated lua/user/hurl.lua configuration file
+* Remove hurl require from lua/user/init.lua as plugin self-registers
