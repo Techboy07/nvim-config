@@ -1,10 +1,8 @@
-feat: add code folding, HTTP client, and snippet support
+docs: replace README with comprehensive setup guide
 
-* Add nvim-ufo for treesitter-based code folding with zR/zM keymaps
-* Integrate nvim-hurl.nvim for HTTP request testing with leader-h keymaps
-* Add LuaSnip for snippet management with expand/jump keymaps
-* Add onedark.nvim theme to plugin list
-* Add NERDTree navigation keymaps (leader-nf, leader-nn)
-* Add window navigation with Ctrl+Arrow keys
-* Add desc property to save keymap for better documentation
-* Add hurl parser to treesitter configuration
+* Add detailed features section listing all plugins and capabilities
+* Add prerequisites and step-by-step installation instructions
+* Add complete keymap reference tables organized by category
+* Add configuration structure diagram showing file layout
+* Add customization guide for plugins, themes, and snippets
+* Add troubleshooting section for common issues
