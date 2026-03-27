@@ -5,3 +5,7 @@ require('user.colors')
 require('user.packer')
 require('user.prettier')
 require('user.telescope')
+require('user.ufo')
+require('user.hurl')
+--require("user.luasnip")
+

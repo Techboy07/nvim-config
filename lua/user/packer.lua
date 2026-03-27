@@ -12,6 +12,7 @@ return require('packer').startup(function(use)
 	use('preservim/nerdtree')
 
 	use("mbbill/undotree")
+use ('navarasu/onedark.nvim')
 
 	use('tpope/vim-fugitive')
 
@@ -27,14 +28,21 @@ return require('packer').startup(function(use)
 
 	use('DaikyXendo/nvim-material-icon')
 	use('ryanoasis/vim-devicons')
-
+        use('ethancarlsson/nvim-hurl.nvim')
 	use('catppuccin/nvim')
 
 	use('ojroques/nvim-osc52')
 
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.8',
-		-- or                            , branch = '0.1.x',
-		requires = { { 'nvim-lua/plenary.nvim' } }
+			requires = { { 'nvim-lua/plenary.nvim' } }
 	}
+
+	use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+
+	use({
+  "L3MON4D3/LuaSnip",
+		tag = "v2.*",
+  run = "make install_jsregexp",
+  })
 end)

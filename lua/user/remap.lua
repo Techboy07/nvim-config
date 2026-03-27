@@ -8,7 +8,7 @@ vim.api.nvim_set_keymap("n", "<leader>D", ":call delete(expand('%')) | bd!<CR>",
 vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, { expr = true })
 vim.keymap.set('n', '<leader>cc', '<leader>c_', { remap = true })
 vim.keymap.set('v', '<leader>c', require('osc52').copy_visual)
-vim.keymap.set('n', '<leader>R', ':source $MYVIMRC')
+vim.keymap.set('n', '<leader>R', ':source $MYVIMRC<CR>')
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
@@ -16,9 +16,11 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live gr
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
--- Remap <leader>p to save the file
-vim.keymap.set("n", "<leader>p", ":w<CR>", { noremap = true, silent = true })
-
+vim.keymap.set("n", "<leader>p", ":w<CR>", {
+  noremap = true,
+  silent = true,
+  desc = "Save file"
+})
 
 vim.keymap.set("n", "<leader>f", ":call CocActionAsync('format')<CR>", { silent = true })
 
@@ -44,3 +46,23 @@ vim.keymap.set("n", "<leader>,", ":tabprevious<CR>", { noremap = true, silent = 
 
 -- Exit terminal mode safely
 vim.keymap.set("t", "<C-q>", "<C-\\><C-n>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>nf", ":NERDTreeFind ")
+vim.keymap.set("n", "<leader>nn", ":NERDTreeFocus<CR>")
+
+
+
+vim.keymap.set("n", "<C-Left>",  "<C-w>h", { desc = "Move to left window" })
+vim.keymap.set("n", "<C-Down>",  "<C-w>j", { desc = "Move to lower window" })
+vim.keymap.set("n", "<C-Up>",    "<C-w>k", { desc = "Move to upper window" })
+vim.keymap.set("n", "<C-Right>", "<C-w>l", { desc = "Move to right window" })
+
+-- HURL keymaps
+vim.keymap.set('n', '<leader>hy', '<cmd>HurlYank<CR>',
+    { desc = 'Run hurl file in buffer and yank contents to the register "*"' })
+vim.keymap.set('n', '<leader>hr', '<cmd>HurlRun<CR>',
+    { desc = 'Run hurl file in buffer and paste it\'s content into a split window' })
+vim.keymap.set('n', '<leader>hv', '<cmd>HurlRunVerbose<CR>',
+    { desc = 'Run hurl file and get additional meta info along with it' })
+vim.keymap.set('n', '<leader>hh', '<cmd>CurlGoFromCursor<CR>',
+    { desc = 'Run a curl request from the url under the cursor' })
