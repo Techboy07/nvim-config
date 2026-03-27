@@ -51,10 +51,25 @@ This will install all plugins and compile the packer configuration.
 
 ### 4. Configure CoC
 
+Build CoC extensions from source:
+
+```bash
+cd ~/.local/share/nvim/site/pack/packer/start/coc.nvim
+npm ci
+```
+
 Install language servers via Mason:
 
 ```vim
 :Mason
+```
+
+Recommended language servers to install:
+
+```vim
+:MasonInstall lua-language-server
+:MasonInstall prettierd
+:MasonInstall eslint-lsp
 ```
 
 Or install CoC extensions manually:
@@ -155,6 +170,7 @@ The leader key is set to **Space** (`<leader>` = ` `)
 │   └── user/
 │       ├── init.lua      # Module loader
 │       ├── colors.lua    # Theme and appearance
+│       ├── material.lua  # Material theme config
 │       ├── packer.lua    # Plugin definitions
 │       ├── remap.lua     # Keymaps
 │       ├── mason.lua     # LSP server management
@@ -162,16 +178,18 @@ The leader key is set to **Space** (`<leader>` = ` `)
 │       ├── lualine.lua   # Status line config
 │       ├── prettier.lua  # Formatting config
 │       ├── ufo.lua       # Code folding config
+│       ├── treesitter.lua# Treesitter config
 │       ├── hurl.lua      # HTTP client config
 │       └── luasnip.lua   # Snippet config
 ├── plugin/
-│   ├── treesitter.lua    # Treesitter config
+│   ├── telescope.lua     # Telescope extensions
 │   ├── undotree.lua      # Undo tree config
 │   ├── vim-fugitive.lua  # Git integration
-│   └── telescope.lua     # Telescope extensions
+│   └── packer_compiled.lua # Packer compiled config
 ├── snippets/             # User snippets
 ├── coc-settings.json     # CoC configuration
-└── COMMIT.md             # Commit message rules
+├── COMMIT.md             # Commit message rules
+└── commit-message.txt    # Commit message template
 ```
 
 ## Customization

@@ -1,8 +1,7 @@
-docs: replace README with comprehensive setup guide
+doc: update README with CoC build and Mason instructions
 
-* Add detailed features section listing all plugins and capabilities
-* Add prerequisites and step-by-step installation instructions
-* Add complete keymap reference tables organized by category
-* Add configuration structure diagram showing file layout
-* Add customization guide for plugins, themes, and snippets
-* Add troubleshooting section for common issues
+* Added CoC build step using `npm ci` for Packer installation path
+* Included recommended language servers: lua-language-server, prettierd, eslint-lsp
+* Updated directory structure to reflect treesitter.lua moved to lua/user/
+* Added material.lua and commit-message.txt to file tree
+* Removed test.js and cleaned up plugin configurations

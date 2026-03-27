@@ -6,13 +6,18 @@ return require('packer').startup(function(use)
 
 	use('crusoexia/vim-monokai')
 
-	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+	use('nvim-treesitter/nvim-treesitter', {
+		run = ':TSUpdate',
+		config = function()
+			require("user.treesitter")
+		end
+	})
 
 	use('honza/vim-snippets')
 	use('preservim/nerdtree')
 
 	use("mbbill/undotree")
-use ('navarasu/onedark.nvim')
+	use('navarasu/onedark.nvim')
 
 	use('tpope/vim-fugitive')
 
@@ -28,21 +33,21 @@ use ('navarasu/onedark.nvim')
 
 	use('DaikyXendo/nvim-material-icon')
 	use('ryanoasis/vim-devicons')
-        use('ethancarlsson/nvim-hurl.nvim')
+	use('ethancarlsson/nvim-hurl.nvim')
 	use('catppuccin/nvim')
 
 	use('ojroques/nvim-osc52')
 
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.8',
-			requires = { { 'nvim-lua/plenary.nvim' } }
+		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
 
-	use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
-
+	use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
+	use('hrsh7th/nvim-cmp')
 	use({
-  "L3MON4D3/LuaSnip",
+		"L3MON4D3/LuaSnip",
 		tag = "v2.*",
-  run = "make install_jsregexp",
-  })
+		run = "make install_jsregexp",
+	})
 end)
