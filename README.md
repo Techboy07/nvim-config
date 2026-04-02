@@ -7,39 +7,64 @@ A modern, feature-rich Neovim configuration built with Lua, Packer.nvim, and CoC
 - **Plugin Management**: Packer.nvim for fast, lazy-loading plugin management
 - **LSP Support**: CoC (Conquer of Completion) with language servers via Mason
 - **Code Folding**: nvim-ufo with treesitter-based folding
-- **HTTP Client**: nvim-hurl for running curl/HURL files directly in Neovim
+- **HTTP Client**: Hurl.nvim for running curl/HURL files directly in Neovim
 - **Snippets**: LuaSnip for snippet expansion
 - **Fuzzy Finding**: Telescope for fast file/buffer/search navigation
 - **File Explorer**: NERDTree with hidden files support
 - **Git Integration**: vim-fugitive for Git operations
 - **Status Line**: lualine.nvim for a modern status bar
-- **Themes**: Catppuccin Mocha (default) and OneDark available
+- **Themes**: Catppuccin Mocha (default), OneDark, and Monokai available
 - **Formatting**: Prettier integration with auto-format on save
 - **Icons**: DevIcons and Material Icons for file type indicators
+- **Auto Tag**: nvim-ts-autotag for automatic HTML/JSX tag closing
+- **Clipboard**: OSC52 support for terminal clipboard integration
 
 ## Prerequisites
 
-- Neovim 0.8+
+- Neovim 0.11.6+
 - Git
 - Node.js (for CoC and Prettier)
 - Yarn (for Prettier installation)
+- ripgrep (for Telescope fuzzy finding)
+- A C compiler (for building some plugins)
 
 ## Installation
 
-### 1. Clone the Configuration
+### 1. Install Prerequisites
+
+**On Ubuntu/Debian:**
+
+```bash
+sudo apt update
+sudo apt install ripgrep build-essential
+```
+
+**On macOS with Homebrew:**
+
+```bash
+brew install ripgrep
+```
+
+**Install Treesitter CLI:**
+
+```bash
+npm install -g tree-sitter-cli
+```
+
+### 2. Clone the Configuration
 
 ```bash
 git clone <repository-url> ~/.config/nvim
 ```
 
-### 2. Install Packer.nvim
+### 3. Install Packer.nvim
 
 ```bash
 git clone --depth 1 https://github.com/wbthomason/packer.nvim \
   ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
 
-### 3. Install Plugins
+### 4. Install Plugins
 
 Open Neovim and run:
 
@@ -49,7 +74,7 @@ Open Neovim and run:
 
 This will install all plugins and compile the packer configuration.
 
-### 4. Configure CoC
+### 5. Configure CoC
 
 Build CoC extensions from source:
 
@@ -67,32 +92,21 @@ Install language servers via Mason:
 Recommended language servers to install:
 
 ```vim
-:MasonInstall lua-language-server
-:MasonInstall prettierd
-:MasonInstall eslint-lsp
+:MasonInstall lua-language-server gopls
 ```
 
 Or install CoC extensions manually:
 
 ```vim
-:CocInstall coc-json coc-tsserver coc-prettier coc-lua
+:CocInstall coc-json coc-tsserver coc-prettier coc-lua coc-emmet coc-pairs
 ```
 
-Ensure C compiler is installed
+Recommended CoC extensions:
 
-```bash
-# on Ubuntu or debian based install with apt
-sudo apt update
-sudo apt install build-essential
-```
+- **coc-emmet**: Emmet support for HTML/CSS/Jade templates
+- **coc-pairs**: Auto-close brackets, quotes, and other pairs
 
-Install Treesitter ClI
-
-```bash
-npm install -g tree-sitter-cli
-```
-
-Then open neovim and Run
+### 6. Update Treesitter
 
 ```vim
 :TSUpdate
@@ -116,6 +130,16 @@ The leader key is set to **Space** (`<leader>` = ` `)
 | `<leader>fg` | Live grep                     |
 | `<leader>fb` | Search buffers                |
 | `<leader>fh` | Search help tags              |
+
+### Telescope Mappings (within picker)
+
+| Keymap        | Mode | Description                      |
+| ------------- | ---- | -------------------------------- |
+| `<C-q>`       | i/n  | Send to quickfix list & open     |
+| `<C-y>` / `y` | i/n  | Copy file path to clipboard      |
+| `<C-n>`       | i/n  | Copy path and reveal in NERDTree |
+| `<C-u>`       | i/n  | Scroll preview up                |
+| `<C-d>`       | i/n  | Scroll preview down              |
 
 ### Window Management
 
@@ -143,13 +167,20 @@ The leader key is set to **Space** (`<leader>` = ` `)
 | `zR`   | Open all folds  |
 | `zM`   | Close all folds |
 
-### HTTP Client (HURL)
+### HTTP Client (Hurl)
 
 | Keymap       | Description                       |
 | ------------ | --------------------------------- |
-| `<leader>hy` | Run HURL file and yank response   |
-| `<leader>hr` | Run HURL file in split window     |
-| `<leader>hv` | Run HURL file with verbose output |
+| `<leader>A`  | Run Hurl request                  |
+| `<leader>a`  | Run Hurl request at cursor        |
+| `<leader>te` | Run Hurl to entry                 |
+| `<leader>tE` | Run Hurl to end                   |
+| `<leader>tm` | Toggle Hurl mode                  |
+| `<leader>tv` | Run Hurl with verbose output      |
+| `<leader>tV` | Run Hurl with very verbose output |
+| `<leader>hy` | Run Hurl file and yank response   |
+| `<leader>hr` | Run Hurl file in split window     |
+| `<leader>hv` | Run Hurl file with verbose output |
 | `<leader>hh` | Run curl request from cursor URL  |
 
 ### Git Operations
@@ -170,7 +201,6 @@ The leader key is set to **Space** (`<leader>` = ` `)
 | `<leader>cc` | Copy line to clipboard    |
 | `<C-t>`      | Open terminal             |
 | `<C-q>`      | Exit terminal mode safely |
-| `<leader>u`  | Toggle Undotree           |
 
 ### Snippets (LuaSnip)
 
@@ -187,6 +217,8 @@ The leader key is set to **Space** (`<leader>` = ` `)
 ~/.config/nvim/
 ├── init.lua              # Main entry point
 ├── lua/
+│   ├── plugins/
+│   │   └── hurl.lua      # Hurl HTTP client plugin config
 │   └── user/
 │       ├── init.lua      # Module loader
 │       ├── colors.lua    # Theme and appearance
@@ -198,13 +230,13 @@ The leader key is set to **Space** (`<leader>` = ` `)
 │       ├── lualine.lua   # Status line config
 │       ├── prettier.lua  # Formatting config
 │       ├── ufo.lua       # Code folding config
-│       ├── treesitter.lua# Treesitter config
-│       ├── hurl.lua      # HTTP client config
-│       └── luasnip.lua   # Snippet config
+│       ├── autotag.lua   # Auto tag closing config
+│       └── luasnip.lua   # Snippet config (optional)
 ├── plugin/
 │   ├── telescope.lua     # Telescope extensions
 │   ├── undotree.lua      # Undo tree config
 │   ├── vim-fugitive.lua  # Git integration
+│   ├── treesitter.lua    # Treesitter config
 │   └── packer_compiled.lua # Packer compiled config
 ├── snippets/             # User snippets
 ├── coc-settings.json     # CoC configuration
@@ -229,7 +261,7 @@ Then run `:PackerSync` in Neovim.
 Edit `lua/user/colors.lua`:
 
 ```lua
-vim.cmd.colorscheme 'catppuccin-mocha'  -- or 'onedark'
+vim.cmd.colorscheme 'catppuccin-mocha'  -- or 'onedark', 'vim-monokai'
 ```
 
 ### Adding Snippets
@@ -247,6 +279,29 @@ endsnippet
 
 Edit `coc-settings.json` to add or modify language server configurations.
 
+## Installed Plugins
+
+- **wbthomason/packer.nvim** - Plugin manager
+- **neoclide/coc.nvim** - LSP client
+- **nvim-treesitter/nvim-treesitter** - Syntax highlighting
+- **nvim-telescope/telescope.nvim** - Fuzzy finder
+- **preservim/nerdtree** - File explorer
+- **tpope/vim-fugitive** - Git integration
+- **nvim-lualine/lualine.nvim** - Status line
+- **kevinhwang91/nvim-ufo** - Code folding
+- **jellydn/hurl.nvim** - HTTP client
+- **L3MON4D3/LuaSnip** - Snippet engine
+- **honza/vim-snippets** - Snippet collection
+- **mbbill/undotree** - Undo tree visualization
+- **prettier/vim-prettier** - Code formatting
+- **windwp/nvim-ts-autotag** - Auto tag closing
+- **catppuccin/nvim** - Catppuccin theme
+- **navarasu/onedark.nvim** - OneDark theme
+- **crusoexia/vim-monokai** - Monokai theme
+- **ryanoasis/vim-devicons** - File type icons
+- **DaikyXendo/nvim-material-icon** - Material icons
+- **ojroques/nvim-osc52** - Clipboard support
+
 ## Troubleshooting
 
 ### Packer Errors
@@ -261,10 +316,19 @@ Run `:PackerClean` followed by `:PackerSync` to reset plugin state.
 
 ### Folding Issues
 
-If folding causes performance issues, adjust in `init.lua`:
+If folding causes performance issues, adjust in `lua/user/ufo.lua`:
 
 ```lua
 vim.o.foldenable = false  -- Disable folding
+```
+
+### Telescope Not Finding Files
+
+Ensure ripgrep is installed:
+
+```bash
+# Check installation
+rg --version
 ```
 
 ## License

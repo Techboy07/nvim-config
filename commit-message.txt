@@ -1,6 +1,11 @@
-refactor: migrate hurl plugin to lua/plugins directory
+feat: enhance neovim config with autotag, telescope improvements, and themes
 
-* Move hurl.nvim plugin spec from plugin/hurl.lua to lua/plugins/hurl.lua
-* Update packer.lua to require plugins.hurl instead of plugin.hurl
-* Remove deprecated lua/user/hurl.lua configuration file
-* Remove hurl require from lua/user/init.lua as plugin self-registers
+* Added nvim-ts-autotag for automatic HTML/JSX tag closing
+* Enhanced Telescope with path copying (<C-y>) and NERDTree reveal (<C-n>) mappings
+* Added onedark and monokai themes alongside catppuccin
+* Added nvim-osc52 for terminal clipboard/SSH support
+* Moved treesitter config to plugin/ for better organization
+* Updated README with installation prerequisites and Telescope mappings
+* Added Lua-specific buffer settings (tabstop, shiftwidth)
+* Improved CoC popup menu Enter key handling
+* Cleaned up packer configuration formatting

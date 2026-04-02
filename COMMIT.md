@@ -9,9 +9,6 @@ Workflow
 1. Run `git status && git diff HEAD && git log -n 3 --oneline` to see changes
 2. Generate the commit message and present it for user review first
 3. After approval, write to commit-message.txt
-4. Commit using: `git add . && git commit -F commit-message.txt && git push`
-   - Use `git add .` (not `git add -A`)
-   - Push without specifying a branch
 
 Format requirements
 The output must contain exactly the text that should appear inside commit-message.txt.
@@ -52,6 +49,7 @@ Feature Rating Task (not included in commit message)
 After generating the commit message, rate each implemented feature on a grade scale (A-F) with brief notes. Present this as a table before the commit message. This helps track implementation quality over time.
 
 Rating requirements:
+
 - Do not truncate notes - provide full detailed feedback
 - Include specific file paths where issues or changes are located
 - Describe what was done well and what could be improved
@@ -65,6 +63,7 @@ After the rating table, include a grade summary command in the following format:
 ```
 
 Grade command rules:
+
 - One line per changed/added feature or significant change
 - `<feature-name>`: Short name for the feature or change
 - `<file-path>`: The file where the change was made
@@ -73,6 +72,7 @@ Grade command rules:
 - Use multiple numbered lines for detailed notes when needed
 
 Example:
+
 ```
 /grade user-auth | src/auth/login.ts | B
   1. Added proper error handling for failed login attempts
