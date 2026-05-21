@@ -1,11 +1,8 @@
-feat: enhance neovim config with autotag, telescope improvements, and themes
+chore: reorganize Neovim plugin config and update paths
 
-* Added nvim-ts-autotag for automatic HTML/JSX tag closing
-* Enhanced Telescope with path copying (<C-y>) and NERDTree reveal (<C-n>) mappings
-* Added onedark and monokai themes alongside catppuccin
-* Added nvim-osc52 for terminal clipboard/SSH support
-* Moved treesitter config to plugin/ for better organization
-* Updated README with installation prerequisites and Telescope mappings
-* Added Lua-specific buffer settings (tabstop, shiftwidth)
-* Improved CoC popup menu Enter key handling
-* Cleaned up packer configuration formatting
+* Reformatted hurl.nvim configuration with consistent indentation and integrated keymaps
+* Refactored packer.nvim setup for consistent style and added treesitter config
+* Updated absolute paths in packer_compiled.lua for the current user
+* Removed obsolete plugin/treesitter.lua file
+* Added new lua/plugins/treesitter.lua file for proper plugin placement
+* Adjusted lazy‑load autocommands order for markdown and hurl filetypes

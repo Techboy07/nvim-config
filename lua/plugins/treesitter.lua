@@ -1,4 +1,7 @@
-require 'nvim-treesitter.configs'.setup {
+vim.fn.writefile({ "treesitter loaded" }, "/tmp/ts_debug.log")
+local ok, ts_configs = pcall(require, 'nvim-treesitter.configs')
+if ok then
+  ts_configs.setup {
   -- A list of parser names, or "all" (the listed parsers MUST always be installed)
   ensure_installed = { "javascript", "typescript", "tsx", "vue", "json", "css", "html", "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "hurl" },
 
@@ -33,3 +36,4 @@ require 'nvim-treesitter.configs'.setup {
 
   indent = { enable = true }
 }
+end

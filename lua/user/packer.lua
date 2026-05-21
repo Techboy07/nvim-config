@@ -1,62 +1,66 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-	use 'wbthomason/packer.nvim'
+  use 'wbthomason/packer.nvim'
 
-	use 'crusoexia/vim-monokai'
+  use 'crusoexia/vim-monokai'
 
-	use {
-		'nvim-treesitter/nvim-treesitter',
-		run = ':TSUpdate',
-		branch = 'master',
-	}
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    opt = false,
+    --  	branch = 'master',
+    config = function()
+      require("plugins.treesitter")
+    end
+  }
 
-	use 'honza/vim-snippets'
-	use 'preservim/nerdtree'
-	use 'mbbill/undotree'
-	use 'navarasu/onedark.nvim'
-	use 'tpope/vim-fugitive'
+  use 'honza/vim-snippets'
+  use 'preservim/nerdtree'
+  use 'mbbill/undotree'
+  use 'navarasu/onedark.nvim'
+  use 'tpope/vim-fugitive'
 
-	use "windwp/nvim-ts-autotag"
+  use "windwp/nvim-ts-autotag"
 
 
-	use {
-		'prettier/vim-prettier',
-		run = 'yarn install --frozen-lockfile --production'
-	}
+  use {
+    'prettier/vim-prettier',
+    run = 'yarn install --frozen-lockfile --production'
+  }
 
-	use 'mason-org/mason.nvim'
-	use 'williamboman/mason-lspconfig.nvim'
-	use 'nvim-lualine/lualine.nvim'
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
+  use 'nvim-lualine/lualine.nvim'
 
-	use {
-		'neoclide/coc.nvim',
-		branch = 'release'
-	}
+  use {
+    'neoclide/coc.nvim',
+    branch = 'release'
+  }
 
-	use 'DaikyXendo/nvim-material-icon'
-	use 'ryanoasis/vim-devicons'
-	use 'catppuccin/nvim'
-	use 'ojroques/nvim-osc52'
+  use 'DaikyXendo/nvim-material-icon'
+  use 'ryanoasis/vim-devicons'
+  use 'catppuccin/nvim'
+  use 'ojroques/nvim-osc52'
 
-	use {
-		'nvim-telescope/telescope.nvim',
-		tag = '0.1.8',
-		requires = { { 'nvim-lua/plenary.nvim' } }
-	}
+  use {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.8',
+    requires = { { 'nvim-lua/plenary.nvim' } }
+  }
 
-	use {
-		'kevinhwang91/nvim-ufo',
-		requires = 'kevinhwang91/promise-async'
-	}
+  use {
+    'kevinhwang91/nvim-ufo',
+    requires = 'kevinhwang91/promise-async'
+  }
 
-	use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/nvim-cmp'
 
-	use {
-		'L3MON4D3/LuaSnip',
-		tag = 'v2.*',
-		run = 'make install_jsregexp',
-	}
+  use {
+    'L3MON4D3/LuaSnip',
+    tag = 'v2.*',
+    run = 'make install_jsregexp',
+  }
 
-	use(require('plugins.hurl'))
+  use(require('plugins.hurl'))
 end)
