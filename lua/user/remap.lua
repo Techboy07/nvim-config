@@ -17,9 +17,9 @@ vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' 
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
 vim.keymap.set("n", "<leader>p", ":w<CR>", {
-  noremap = true,
-  silent = true,
-  desc = "Save file"
+	noremap = true,
+	silent = true,
+	desc = "Save file"
 })
 
 vim.keymap.set("n", "<leader>f", ":call CocActionAsync('format')<CR>", { silent = true })
@@ -50,19 +50,21 @@ vim.keymap.set("t", "<C-q>", "<C-\\><C-n>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>nf", ":NERDTreeFind ")
 vim.keymap.set("n", "<leader>nn", ":NERDTreeFocus<CR>")
 
+-- HURL keymaps
 
+-- Use Alt + Arrow keys to jump windows instead (Bypasses Windows Win+L completely!)
+vim.keymap.set("n", "<A-Left>", "<C-w>h", { desc = "Move to left window" })
+vim.keymap.set("n", "<A-Down>", "<C-w>j", { desc = "Move to lower window" })
+vim.keymap.set("n", "<A-Up>", "<C-w>k", { desc = "Move to upper window" })
+vim.keymap.set("n", "<A-Right>", "<C-w>l", { desc = "Move to right window" })
 
-vim.keymap.set("n", "<C-Left>",  "<C-w>h", { desc = "Move to left window" })
-vim.keymap.set("n", "<C-Down>",  "<C-w>j", { desc = "Move to lower window" })
-vim.keymap.set("n", "<C-Up>",    "<C-w>k", { desc = "Move to upper window" })
-vim.keymap.set("n", "<C-Right>", "<C-w>l", { desc = "Move to right window" })
 
 -- HURL keymaps
 vim.keymap.set('n', '<leader>hy', '<cmd>HurlYank<CR>',
-    { desc = 'Run hurl file in buffer and yank contents to the register "*"' })
+	{ desc = 'Run hurl file in buffer and yank contents to the register "*"' })
 vim.keymap.set('n', '<leader>hr', '<cmd>HurlRun<CR>',
-    { desc = 'Run hurl file in buffer and paste it\'s content into a split window' })
+	{ desc = 'Run hurl file in buffer and paste it\'s content into a split window' })
 vim.keymap.set('n', '<leader>hv', '<cmd>HurlRunVerbose<CR>',
-    { desc = 'Run hurl file and get additional meta info along with it' })
+	{ desc = 'Run hurl file and get additional meta info along with it' })
 vim.keymap.set('n', '<leader>hh', '<cmd>CurlGoFromCursor<CR>',
-    { desc = 'Run a curl request from the url under the cursor' })
+	{ desc = 'Run a curl request from the url under the cursor' })

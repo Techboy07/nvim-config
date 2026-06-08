@@ -1,8 +1,5 @@
-chore: reorganize Neovim plugin config and update paths
+fix: update window navigation keymaps
 
-* Reformatted hurl.nvim configuration with consistent indentation and integrated keymaps
-* Refactored packer.nvim setup for consistent style and added treesitter config
-* Updated absolute paths in packer_compiled.lua for the current user
-* Removed obsolete plugin/treesitter.lua file
-* Added new lua/plugins/treesitter.lua file for proper plugin placement
-* Adjusted lazy‑load autocommands order for markdown and hurl filetypes
+* Change window movement from Ctrl-arrow to Alt-arrow bindings
+* Update README keymap docs to match the active mappings
+* Refresh generated packer output for the current plugin state

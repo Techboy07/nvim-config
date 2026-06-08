@@ -147,10 +147,10 @@ The leader key is set to **Space** (`<leader>` = ` `)
 | ----------- | -------------------- |
 | `<leader>v` | Vertical split       |
 | `<leader>s` | Horizontal split     |
-| `<C-Left>`  | Move to left window  |
-| `<C-Down>`  | Move to lower window |
-| `<C-Up>`    | Move to upper window |
-| `<C-Right>` | Move to right window |
+| `<A-Left>`  | Move to left window  |
+| `<A-Down>`  | Move to lower window |
+| `<A-Up>`    | Move to upper window |
+| `<A-Right>` | Move to right window |
 
 ### Tab Management
 
