@@ -14,6 +14,7 @@ return require('packer').startup(function(use)
       require("plugins.treesitter")
     end
   }
+  use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 
   use 'honza/vim-snippets'
   use 'preservim/nerdtree'
@@ -47,11 +48,6 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim',
     tag = '0.1.8',
     requires = { { 'nvim-lua/plenary.nvim' } }
-  }
-
-  use {
-    'kevinhwang91/nvim-ufo',
-    requires = 'kevinhwang91/promise-async'
   }
 
   use 'hrsh7th/nvim-cmp'

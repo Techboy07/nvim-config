@@ -1,5 +1,6 @@
-fix: update window navigation keymaps
+chore: clean up formatting and add kanata parser to treesitter
 
-* Change window movement from Ctrl-arrow to Alt-arrow bindings
-* Update README keymap docs to match the active mappings
-* Refresh generated packer output for the current plugin state
+- Added kanata to treesitter ensure_installed parsers
+- Simplified nvim-ufo setup to default configuration
+- Reorganized nvim-ufo plugin declaration in packer.lua
+- Standardized indentation in hurl.lua and treesitter.lua
