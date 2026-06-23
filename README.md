@@ -27,6 +27,7 @@ A modern, feature-rich Neovim configuration built with Lua, Packer.nvim, and CoC
 - Yarn (for Prettier installation)
 - ripgrep (for Telescope fuzzy finding)
 - A C compiler (for building some plugins)
+- Rust/Cargo (optional — for installing tree-sitter-cli via cargo)
 
 ## Installation
 
@@ -45,10 +46,23 @@ sudo apt install ripgrep build-essential
 brew install ripgrep
 ```
 
-**Install Treesitter CLI:**
+**Install Treesitter CLI (pick one):**
 
+Option A — via npm:
 ```bash
 npm install -g tree-sitter-cli
+```
+
+Option B — via Cargo (more reliable):
+```bash
+# Check if Cargo is available
+cargo --version
+
+# If not installed, install Rust/Cargo:
+# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Then install tree-sitter-cli
+cargo install tree-sitter-cli
 ```
 
 ### 2. Clone the Configuration
@@ -111,6 +125,22 @@ Recommended CoC extensions:
 ```vim
 :TSUpdate
 ```
+
+### 7. Kanata Syntax Highlighting
+
+This config includes tree-sitter support for [kanata](https://github.com/jtroo/kanata) `.kbd` files.
+
+```vim
+:TSInstall kanata
+```
+
+Open any `.kbd` file to verify — you should see syntax highlighting for:
+- Keywords (`defcfg`, `deflayer`, `defalias`, `defsrc`, etc.)
+- Comments (`;;` and `#| |#`)
+- Strings and paths
+- Aliases (`@name`)
+- Variables (`$name`)
+- Functions (`(tap-hold ...)`, `(layer-toggle ...)`, etc.)
 
 ## Keymaps
 

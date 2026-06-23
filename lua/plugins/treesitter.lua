@@ -6,7 +6,7 @@ local ok, ts_configs = pcall(require, 'nvim-treesitter.configs')
 if ok then
   ts_configs.setup {
     -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-    ensure_installed = { "javascript", "typescript", "tsx", "vue", "json", "css", "html", "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "hurl", "kanata" },
+    ensure_installed = { "javascript", "typescript", "tsx", "vue", "json", "css", "html", "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "hurl", },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
@@ -20,6 +20,7 @@ if ok then
 
     ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
     -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+    prefer_git = true,
 
     highlight = {
       enable = true,

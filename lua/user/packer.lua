@@ -9,7 +9,7 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     opt = false,
-    --  	branch = 'master',
+    branch = 'master',
     config = function()
       require("plugins.treesitter")
     end

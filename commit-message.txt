@@ -1,6 +1,9 @@
-chore: clean up formatting and add kanata parser to treesitter
+feat: add Kanata .kbd support and enable git-based treesitter installs
 
-- Added kanata to treesitter ensure_installed parsers
-- Simplified nvim-ufo setup to default configuration
-- Reorganized nvim-ufo plugin declaration in packer.lua
-- Standardized indentation in hurl.lua and treesitter.lua
+- Integrate tree-sitter-kanata parser for .kbd file highlighting
+- Register kanata filetype and parser in init.lua
+- Document Rust/Cargo as alternative tree-sitter-cli install method
+- Enable prefer_git for treesitter parser installations
+- Uncomment branch tracking for nvim-treesitter plugin
+- Normalize hurl.nvim indentation to spaces
+- Update packer_compiled.lua with new plugin lazy-loading

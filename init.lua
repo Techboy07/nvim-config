@@ -50,3 +50,22 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.expandtab = true
   end,
 })
+
+local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
+parser_config.kanata = {
+  install_info = {
+    url = 'https://github.com/postsolar/tree-sitter-kanata',
+    files = { 'src/parser.c' },
+    branch = 'master',
+  },
+  filetype = 'kanata',
+}
+
+-- Register the file extension so Neovim matches .kbd files to the kanata parser
+vim.filetype.add({
+  extension = {
+    kbd = 'kanata',
+  },
+})
+
+vim.treesitter.language.register('kanata', { 'kanata' })
