@@ -6,7 +6,7 @@ local ok, ts_configs = pcall(require, 'nvim-treesitter.configs')
 if ok then
   ts_configs.setup {
     -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-    ensure_installed = { "javascript", "typescript", "tsx", "vue", "json", "css", "html", "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "hurl", },
+    ensure_installed = { "javascript", "typescript", "tsx", "vue", "json", "css", "html", "c", "lua", "vim", "vimdoc", "query", "hurl", },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
@@ -16,7 +16,7 @@ if ok then
     auto_install = true,
 
     -- List of parsers to ignore installing (or "all")
-    --ignore_install = {},
+    ignore_install = { "markdown_inline", "markdown" },
 
     ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
     -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
@@ -29,7 +29,7 @@ if ok then
       -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
       -- the name of the parser)
       -- list of language that will be disabled
-      --disable = { "c", "rust" },
+      disable = { "markdown_inline", "markdown" },
       -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files	
       -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
       -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).

@@ -1,9 +1,6 @@
-feat: add Kanata .kbd support and enable git-based treesitter installs
+feat: switch to vim-markdown and tune treesitter parsers
 
-- Integrate tree-sitter-kanata parser for .kbd file highlighting
-- Register kanata filetype and parser in init.lua
-- Document Rust/Cargo as alternative tree-sitter-cli install method
-- Enable prefer_git for treesitter parser installations
-- Uncomment branch tracking for nvim-treesitter plugin
-- Normalize hurl.nvim indentation to spaces
-- Update packer_compiled.lua with new plugin lazy-loading
+- Replaced hurl.nvim with preservim/vim-markdown plugin
+- Removed markdown parsers from treesitter and added to ignore/disable lists
+- Cleaned up README markdown formatting
+- Updated compiled packer state to reflect plugin changes

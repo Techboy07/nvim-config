@@ -49,11 +49,13 @@ brew install ripgrep
 **Install Treesitter CLI (pick one):**
 
 Option A — via npm:
+
 ```bash
 npm install -g tree-sitter-cli
 ```
 
 Option B — via Cargo (more reliable):
+
 ```bash
 # Check if Cargo is available
 cargo --version
@@ -135,6 +137,7 @@ This config includes tree-sitter support for [kanata](https://github.com/jtroo/k
 ```
 
 Open any `.kbd` file to verify — you should see syntax highlighting for:
+
 - Keywords (`defcfg`, `deflayer`, `defalias`, `defsrc`, etc.)
 - Comments (`;;` and `#| |#`)
 - Strings and paths
