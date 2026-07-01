@@ -104,6 +104,16 @@ _G.packer_plugins = {
     path = "/home/swegz-tradelink/.local/share/nvim/site/pack/packer/start/nerdtree",
     url = "https://github.com/preservim/nerdtree"
   },
+  ["noice.nvim"] = {
+    loaded = true,
+    path = "/home/swegz-tradelink/.local/share/nvim/site/pack/packer/start/noice.nvim",
+    url = "https://github.com/folke/noice.nvim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/swegz-tradelink/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
+  },
   nvim = {
     loaded = true,
     path = "/home/swegz-tradelink/.local/share/nvim/site/pack/packer/start/nvim",
@@ -118,6 +128,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/swegz-tradelink/.local/share/nvim/site/pack/packer/start/nvim-material-icon",
     url = "https://github.com/DaikyXendo/nvim-material-icon"
+  },
+  ["nvim-notify"] = {
+    loaded = true,
+    path = "/home/swegz-tradelink/.local/share/nvim/site/pack/packer/start/nvim-notify",
+    url = "https://github.com/rcarriga/nvim-notify"
   },
   ["nvim-osc52"] = {
     loaded = true,

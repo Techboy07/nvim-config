@@ -63,9 +63,16 @@ return require('packer').startup(function(use)
     dependencies = { "godlygeek/tabular" }, -- Optional, but improves Markdown table alignment
     config = function()
       -- Optional config tweaks:
-      vim.g.vim_markdown_math = 1      -- Enable LaTeX math support
+      vim.g.vim_markdown_math = 1        -- Enable LaTeX math support
       vim.g.vim_markdown_frontmatter = 1 -- Enable YAML frontmatter highlight
     end
   }
-  -- use(require('plugins.hurl'))
+  use {
+    "folke/noice.nvim",
+    -- event = "VeryLazy",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    }
+  }
 end)
