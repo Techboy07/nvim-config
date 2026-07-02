@@ -1,12 +1,30 @@
 vim.fn.writefile({ "treesitter loaded" }, "/tmp/ts_debug.log")
 local ok, ts_configs = pcall(require, 'nvim-treesitter.configs')
 
-
-
 if ok then
+  local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+
+  -- The legacy nvim-treesitter branch pins Markdown parsers and queries that
+  -- are incompatible with Neovim 0.12+. Keep the legacy plugin API, but use
+  -- the parser revision from the maintained branch. The matching injection
+  -- query is overridden in queries/markdown/injections.scm.
+  parser_configs.markdown.install_info = {
+    url = 'https://github.com/tree-sitter-grammars/tree-sitter-markdown',
+    revision = 'f969cd3ae3f9fbd4e43205431d0ae286014c05b5',
+    location = 'tree-sitter-markdown',
+    files = { 'src/parser.c', 'src/scanner.c' },
+  }
+
+  parser_configs.markdown_inline.install_info = {
+    url = 'https://github.com/tree-sitter-grammars/tree-sitter-markdown',
+    revision = 'f969cd3ae3f9fbd4e43205431d0ae286014c05b5',
+    location = 'tree-sitter-markdown-inline',
+    files = { 'src/parser.c', 'src/scanner.c' },
+  }
+
   ts_configs.setup {
     -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-    ensure_installed = { "javascript", "typescript", "tsx", "vue", "json", "css", "html", "c", "lua", "vim", "vimdoc", "query", "hurl", },
+    ensure_installed = { "javascript", "typescript", "tsx", "vue", "json", "css", "html", "c", "lua", "vim", "vimdoc", "query", "hurl", "markdown", "markdown_inline", },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
@@ -16,7 +34,7 @@ if ok then
     auto_install = true,
 
     -- List of parsers to ignore installing (or "all")
-    ignore_install = { "markdown_inline", "markdown" },
+    -- ignore_install = { "markdown_inline", "markdown" },
 
     ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
     -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
@@ -29,7 +47,7 @@ if ok then
       -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
       -- the name of the parser)
       -- list of language that will be disabled
-      disable = { "markdown_inline", "markdown" },
+      -- disable = { "markdown_inline", "markdown" },
       -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files	
       -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
       -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).

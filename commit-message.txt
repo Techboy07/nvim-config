@@ -1,5 +1,9 @@
-feat: add noice.nvim for improved UI experience
+feat: switch markdown highlighting from vim-markdown to treesitter
 
-* Added noice.nvim plugin with nui.nvim and nvim-notify dependencies
-* Created noice configuration with LSP override and UI presets
-* Registered module in init.lua load chain
+- Enabled treesitter markdown and markdown_inline parsers
+- Removed vim-markdown plugin and its lazy-load config
+- Added custom parser revision for Neovim 0.12+ compatibility
+- Commented out legacy markdown treesitter disable in after/ftplugin
+- Removed nvim-treesitter dependency from hurl plugin
+- Registered hurl plugin in packer startup
+- Deleted stale packer_compiled.lua

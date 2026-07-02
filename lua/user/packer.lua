@@ -57,16 +57,16 @@ return require('packer').startup(function(use)
     tag = 'v2.*',
     run = 'make install_jsregexp',
   }
-  use {
-    "preservim/vim-markdown",
-    ft = "markdown",
-    dependencies = { "godlygeek/tabular" }, -- Optional, but improves Markdown table alignment
-    config = function()
-      -- Optional config tweaks:
-      vim.g.vim_markdown_math = 1        -- Enable LaTeX math support
-      vim.g.vim_markdown_frontmatter = 1 -- Enable YAML frontmatter highlight
-    end
-  }
+  -- use {
+  --   "preservim/vim-markdown",
+  --   ft = "markdown",
+  --   dependencies = { "godlygeek/tabular" }, -- Optional, but improves Markdown table alignment
+  --   config = function()
+  --     -- Optional config tweaks:
+  --     vim.g.vim_markdown_math = 1        -- Enable LaTeX math support
+  --     vim.g.vim_markdown_frontmatter = 1 -- Enable YAML frontmatter highlight
+  --   end
+  -- }
   use {
     "folke/noice.nvim",
     -- event = "VeryLazy",
@@ -75,4 +75,5 @@ return require('packer').startup(function(use)
       "rcarriga/nvim-notify",
     }
   }
+  use(require('plugins.hurl'))
 end)
