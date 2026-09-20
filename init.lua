@@ -35,7 +35,7 @@ vim.keymap.set("i", "<CR>", function()
 end, { expr = true, silent = true })
 
 
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 
 
 vim.g.NERDTreeShowHidden = 1

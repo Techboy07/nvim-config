@@ -38,6 +38,7 @@ return require('packer').startup(function(use)
     'neoclide/coc.nvim',
     branch = 'release'
   }
+  use { "bluz71/vim-moonfly-colors", as = "moonfly", lazy = false, priority = 1000 }
 
   use 'DaikyXendo/nvim-material-icon'
   use 'ryanoasis/vim-devicons'
@@ -52,28 +53,5 @@ return require('packer').startup(function(use)
 
   use 'hrsh7th/nvim-cmp'
 
-  use {
-    'L3MON4D3/LuaSnip',
-    tag = 'v2.*',
-    run = 'make install_jsregexp',
-  }
-  -- use {
-  --   "preservim/vim-markdown",
-  --   ft = "markdown",
-  --   dependencies = { "godlygeek/tabular" }, -- Optional, but improves Markdown table alignment
-  --   config = function()
-  --     -- Optional config tweaks:
-  --     vim.g.vim_markdown_math = 1        -- Enable LaTeX math support
-  --     vim.g.vim_markdown_frontmatter = 1 -- Enable YAML frontmatter highlight
-  --   end
-  -- }
-  use {
-    "folke/noice.nvim",
-    -- event = "VeryLazy",
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    }
-  }
   use(require('plugins.hurl'))
 end)

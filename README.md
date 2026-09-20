@@ -8,12 +8,14 @@ A modern, feature-rich Neovim configuration built with Lua, Packer.nvim, and CoC
 - **LSP Support**: CoC (Conquer of Completion) with language servers via Mason
 - **Code Folding**: nvim-ufo with treesitter-based folding
 - **HTTP Client**: Hurl.nvim for running curl/HURL files directly in Neovim
-- **Snippets**: LuaSnip for snippet expansion
+- **Snippets**: vim-snippets collection; snippet expansion requires a separately configured engine
 - **Fuzzy Finding**: Telescope for fast file/buffer/search navigation
 - **File Explorer**: NERDTree with hidden files support
 - **Git Integration**: vim-fugitive for Git operations
 - **Status Line**: lualine.nvim for a modern status bar
-- **Themes**: Catppuccin Mocha (default), OneDark, and Monokai available
+- **Themes**: Moonfly (default), with Catppuccin Mocha, OneDark, and Monokai available
+- **Line Numbers**: Relative line numbers with the current line’s absolute number
+- **UI**: Standard Neovim messages and command line; Noice is no longer loaded
 - **Formatting**: Prettier integration with auto-format on save
 - **Icons**: DevIcons and Material Icons for file type indicators
 - **Auto Tag**: nvim-ts-autotag for automatic HTML/JSX tag closing
@@ -145,6 +147,25 @@ Open any `.kbd` file to verify — you should see syntax highlighting for:
 - Variables (`$name`)
 - Functions (`(tap-hold ...)`, `(layer-toggle ...)`, etc.)
 
+## Kanata Keyboard Configurations
+
+The `kanata/` directory contains standalone keyboard remapping configurations. These run separately from Neovim and require Kanata to be installed and configured with access to your input devices.
+
+| File | Purpose |
+| ---- | ------- |
+| `kanata/config.kbd` | Combined home row modifiers, navigation, and mouse controls |
+| `kanata/homerow.kbd` | Home row modifiers and navigation only |
+| `kanata/mouse.kbd` | CapsLock/Escape and mouse controls only |
+
+Choose one configuration at a time. The combined configuration provides:
+
+- Tap home row keys to type; hold `a/s/d/f` for left Meta/Alt/Shift/Ctrl and `j/k/l/;` for right Ctrl/Shift/Alt/Meta. The `h` key has no modifier assigned.
+- Tap Space for a space; hold it for navigation, where `a/s/d/f` and `h/j/k/l` map to Left/Down/Up/Right. Semicolon sends F13 on this layer.
+- Tap CapsLock for Escape; hold it for mouse controls. Use `h/j/k/l` to move left/down/up/right and `s/d/f` for right/middle/left click.
+- Tap and hold timeouts are 200 ms. Mouse movement uses an 8 ms interval and 2 pixels per step. Scroll aliases are defined but are not bound to keys.
+
+Adjust timings and movement in each file’s `defvar` block; `mouse.kbd` sets its CapsLock tap/hold timing directly in the `moe` alias.
+
 ## Keymaps
 
 ### Leader Key
@@ -235,20 +256,15 @@ The leader key is set to **Space** (`<leader>` = ` `)
 | `<C-t>`      | Open terminal             |
 | `<C-q>`      | Exit terminal mode safely |
 
-### Snippets (LuaSnip)
-
-| Keymap  | Description                     |
-| ------- | ------------------------------- |
-| `<C-K>` | Expand snippet                  |
-| `<C-L>` | Jump forward in snippet         |
-| `<C-J>` | Jump backward in snippet        |
-| `<C-E>` | Change choice in choice snippet |
-
 ## Configuration Structure
 
 ```
 ~/.config/nvim/
 ├── init.lua              # Main entry point
+├── kanata/
+│   ├── config.kbd        # Combined keyboard controls
+│   ├── homerow.kbd       # Home row modifiers and navigation
+│   └── mouse.kbd         # Mouse controls
 ├── lua/
 │   ├── plugins/
 │   │   └── hurl.lua      # Hurl HTTP client plugin config
@@ -264,7 +280,8 @@ The leader key is set to **Space** (`<leader>` = ` `)
 │       ├── prettier.lua  # Formatting config
 │       ├── ufo.lua       # Code folding config
 │       ├── autotag.lua   # Auto tag closing config
-│       └── luasnip.lua   # Snippet config (optional)
+│       ├── noice.lua     # Inactive legacy UI config
+│       └── luasnip.lua   # Inactive legacy snippet config
 ├── plugin/
 │   ├── telescope.lua     # Telescope extensions
 │   ├── undotree.lua      # Undo tree config
@@ -294,12 +311,14 @@ Then run `:PackerSync` in Neovim.
 Edit `lua/user/colors.lua`:
 
 ```lua
-vim.cmd.colorscheme 'catppuccin-mocha'  -- or 'onedark', 'vim-monokai'
+vim.cmd.colorscheme 'moonfly'  -- or 'catppuccin-mocha', 'onedark', 'vim-monokai'
 ```
 
 ### Adding Snippets
 
-Add snippet files to the `snippets/` directory:
+LuaSnip is no longer installed or loaded, so its former expansion and navigation mappings are inactive. The `snippets/` directory and vim-snippets collection remain available. Configure a compatible snippet engine before using these files.
+
+Example snippet file:
 
 ```snippets
 # ~/.config/nvim/snippets/javascript.snippets
@@ -323,11 +342,11 @@ Edit `coc-settings.json` to add or modify language server configurations.
 - **nvim-lualine/lualine.nvim** - Status line
 - **kevinhwang91/nvim-ufo** - Code folding
 - **jellydn/hurl.nvim** - HTTP client
-- **L3MON4D3/LuaSnip** - Snippet engine
 - **honza/vim-snippets** - Snippet collection
 - **mbbill/undotree** - Undo tree visualization
 - **prettier/vim-prettier** - Code formatting
 - **windwp/nvim-ts-autotag** - Auto tag closing
+- **bluz71/vim-moonfly-colors** - Moonfly theme (default)
 - **catppuccin/nvim** - Catppuccin theme
 - **navarasu/onedark.nvim** - OneDark theme
 - **crusoexia/vim-monokai** - Monokai theme

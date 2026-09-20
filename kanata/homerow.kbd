@@ -1,0 +1,43 @@
+(defcfg
+  process-unmapped-keys no
+  log-layer-changes no
+)
+
+;; 1. Define the physical source keys (10 keys total)
+(defsrc
+  a   s   d   f   h   j   k   l   ;
+  spc
+)
+(defvar
+hold-timeout 200
+tap-timeout 200
+)
+;; 2. Define the behaviors or aliases
+(defalias
+  ;; Tap for space, hold for navigation layer
+  nav (tap-hold $tap-timeout $hold-timeout spc (layer-toggle navigation))
+  
+  ;; Home row mods: tap = letter, hold = modifier
+  a_mod (tap-hold $tap-timeout $hold-timeout a lmeta)
+  s_mod (tap-hold $tap-timeout $hold-timeout s lalt)
+  d_mod (tap-hold $tap-timeout $hold-timeout d lshft)
+  f_mod (tap-hold $tap-timeout $hold-timeout f lctl)
+  h_mod (tap-hold $tap-timeout $hold-timeout h _ )
+  j_mod (tap-hold $tap-timeout $hold-timeout j rctl)
+  k_mod (tap-hold $tap-timeout $hold-timeout k rshft)
+  l_mod (tap-hold $tap-timeout $hold-timeout l ralt)
+  sc_mod (tap-hold $tap-timeout $hold-timeout ; rmeta)
+)
+
+;; 3. Your starting layer (Must match defsrc layout exactly)
+(deflayer default
+  @a_mod  @s_mod  @d_mod  @f_mod  @h_mod  @j_mod  @k_mod  @l_mod  @sc_mod
+  @nav
+)
+
+;; 4. Your navigation layer (Must match defsrc layout exactly)
+;; Both left-hand (asdf) and right-hand (hjkl) function as arrow keys.
+(deflayer navigation
+  left    down    up   right   left   down   up    right   f13
+  _
+)

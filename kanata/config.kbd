@@ -1,0 +1,62 @@
+(defcfg
+  process-unmapped-keys no
+  log-layer-changes no
+)
+
+;; Shared physical keys for home row mods, navigation, and mouse control.
+(defsrc
+  caps    a       s       d       f       h       j       k       l       ;
+  spc
+)
+
+(defvar
+  hold-timeout 200
+  tap-timeout 200
+  cursor-interval 8
+  cursor-pixels 2
+)
+
+(defalias
+  ;; Tap Space for space; hold for navigation.
+  nav (tap-hold $tap-timeout $hold-timeout spc (layer-toggle navigation))
+  ;; Tap CapsLock for Escape; hold for mouse control.
+  moe (tap-hold $tap-timeout $hold-timeout esc (layer-while-held mouse))
+
+  ;; Home row mods: tap for the letter, hold for the modifier.
+  a_mod (tap-hold $tap-timeout $hold-timeout a lmeta)
+  s_mod (tap-hold $tap-timeout $hold-timeout s lalt)
+  d_mod (tap-hold $tap-timeout $hold-timeout d lshft)
+  f_mod (tap-hold $tap-timeout $hold-timeout f lctl)
+  h_mod (tap-hold $tap-timeout $hold-timeout h _)
+  j_mod (tap-hold $tap-timeout $hold-timeout j rctl)
+  k_mod (tap-hold $tap-timeout $hold-timeout k rshft)
+  l_mod (tap-hold $tap-timeout $hold-timeout l ralt)
+  sc_mod (tap-hold $tap-timeout $hold-timeout ; rmeta)
+
+  ;; Mouse movement: interval in milliseconds, distance in pixels.
+  ms↑ (movemouse-up $cursor-interval $cursor-pixels)
+  ms↓ (movemouse-down $cursor-interval $cursor-pixels)
+  ms← (movemouse-left $cursor-interval $cursor-pixels)
+  ms→ (movemouse-right $cursor-interval $cursor-pixels)
+
+  ;; Scroll aliases retained from mouse.kbd (currently unbound).
+  mwu (mwheel-up 50 120)
+  mwd (mwheel-down 50 120)
+)
+
+(deflayer default
+  @moe    @a_mod  @s_mod  @d_mod  @f_mod  @h_mod  @j_mod  @k_mod  @l_mod  @sc_mod
+  @nav
+)
+
+;; Hold Space: both asdf and hjkl act as arrow keys.
+(deflayer navigation
+  _       left    down    up      right   left    down    up      right   f13
+  _
+)
+
+;; Hold CapsLock: s/d/f click right/middle/left; hjkl move the pointer.
+(deflayer mouse
+  _       _       mrgt    mmid    mlft    @ms←    @ms↓    @ms↑    @ms→    _
+  _
+)

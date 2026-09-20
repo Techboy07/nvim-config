@@ -1,9 +1,6 @@
-feat: switch markdown highlighting from vim-markdown to treesitter
+feat: add keyboard controls and refresh editor defaults
 
-- Enabled treesitter markdown and markdown_inline parsers
-- Removed vim-markdown plugin and its lazy-load config
-- Added custom parser revision for Neovim 0.12+ compatibility
-- Commented out legacy markdown treesitter disable in after/ftplugin
-- Removed nvim-treesitter dependency from hurl plugin
-- Registered hurl plugin in packer startup
-- Deleted stale packer_compiled.lua
+* Add Kanata home row, navigation, and mouse configurations
+* Set Moonfly as the default theme and enable relative line numbers
+* Remove Noice and LuaSnip from plugin setup
+* Update documentation for editor defaults and keyboard controls

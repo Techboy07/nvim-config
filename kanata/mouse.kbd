@@ -1,0 +1,39 @@
+(defcfg 
+  process-unmapped-keys no
+  log-layer-changes yes
+)
+
+;; 1. Add 'caps' to the physical source keys (10 keys total)
+(defsrc
+  caps a s d f h j k l ;
+)
+(defvar 
+cursor-interval 8
+cursor-pixels 2 
+) 
+;; --- Aliases Section ---
+(defalias
+  ;; CapsLock taps to Esc, holds to activate the mouse layer
+  moe (tap-hold 200 200 esc (layer-while-held mouse))
+
+  ;; Mouse movement: (movemouse-[direction] interval-ms pixels)
+  ms↑ (movemouse-up $cursor-interval $cursor-pixels) 
+  ms↓ (movemouse-down $cursor-interval  $cursor-pixels) 
+  ms← (movemouse-left  $cursor-interval $cursor-pixels) 
+  ms→ (movemouse-right $cursor-interval $cursor-pixels) 
+
+  ;; Scroll actions: (mwheel-[direction] interval-ms distance)
+  mwu (mwheel-up 50 120)
+  mwd (mwheel-down 50 120)
+)
+
+;; --- Default Layer ---
+(deflayer qwerty
+  @moe a s d f h j k l ;
+)
+
+;; --- Mouse Layer ---
+(deflayer mouse
+  ;; Maps to: caps, a, s(mrgt), d(mmid), f(mlft), h(←), j(↓), k(↑), l(→), ;
+  _    _    mrgt mmid mlft @ms← @ms↓ @ms↑ @ms→ _
+)
