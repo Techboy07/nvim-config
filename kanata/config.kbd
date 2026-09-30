@@ -51,7 +51,7 @@
 
 ;; Hold Space: both asdf and hjkl act as arrow keys.
 (deflayer navigation
-  _       left    down    up      right   left    down    up      right   f13
+  _       left    down    up      right   left    down    up      right   prtsc
   _
 )
 
