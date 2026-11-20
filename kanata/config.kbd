@@ -5,7 +5,7 @@
 
 ;; Shared physical keys for home row mods, navigation, and mouse control.
 (defsrc
-  caps    a       s       d       f       h       j       k       l       ;
+  caps    a       s       d       f       y       u       n       m       h       j       k       l       ;
   spc
 )
 
@@ -42,21 +42,23 @@
   ;; Scroll aliases retained from mouse.kbd (currently unbound).
   mwu (mwheel-up 50 120)
   mwd (mwheel-down 50 120)
+  mwl (mwheel-left 50 120)
+  mwr (mwheel-right 50 120)
 )
 
 (deflayer default
-  @moe    @a_mod  @s_mod  @d_mod  @f_mod  @h_mod  @j_mod  @k_mod  @l_mod  @sc_mod
+  @moe    @a_mod  @s_mod  @d_mod  @f_mod  _  _  _  _  @h_mod  @j_mod  @k_mod  @l_mod  @sc_mod
   @nav
 )
 
 ;; Hold Space: both asdf and hjkl act as arrow keys.
 (deflayer navigation
-  _       left    down    up      right   left    down    up      right   prtsc
+  _       left    down    up      right   _   _   _   _   left    down    up      right   prtsc
   _
 )
 
 ;; Hold CapsLock: s/d/f click right/middle/left; hjkl move the pointer.
 (deflayer mouse
-  _       _       mrgt    mmid    mlft    @ms←    @ms↓    @ms↑    @ms→    _
+  _       _       mrgt    mmid    mlft    @mwu    @mwd    @mwl    @mwr    @ms←    @ms↓    @ms↑    @ms→    _
   _
 )

@@ -1,6 +1,8 @@
-feat: add keyboard controls and refresh editor defaults
+feat: add WezTerm controls and desktop configuration
 
-* Add Kanata home row, navigation, and mouse configurations
-* Set Moonfly as the default theme and enable relative line numbers
-* Remove Noice and LuaSnip from plugin setup
-* Update documentation for editor defaults and keyboard controls
+* Add modular WezTerm font, window, pane, and workspace settings
+* Add tmux-style prefix controls and workspace status indicators
+* Expand Kanata navigation and mouse-wheel mappings
+* Document Hyprland screen-sharing portal setup
+* Trust SchemaStore and GitHub domains for JSON schemas
+* Remove the unused wl-kbptr pointer jump script

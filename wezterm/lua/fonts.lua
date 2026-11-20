@@ -8,6 +8,7 @@ function M.apply(config)
   -- Silence the missing glyph warnings
   config.warn_about_missing_glyphs = false
   config.custom_block_glyphs = true
+  config.font_size = 11
 
   -- Exact system font fallback chain
   config.font = wezterm.font_with_fallback({

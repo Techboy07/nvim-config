@@ -62,5 +62,11 @@
   },
   "snippets.ultisnips.pythonPrompt": false,
   "snippets.priority": 99,
-  "snippets.userSnippetsDirectory": "~/.config/nvim/snippets"
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
+  "json.schemaDownload.trustedDomains": {
+    "https://raw.githubusercontent.com": true,
+    "https://www.schemastore.org": true,
+    "https://json.schemastore.org": true,
+    "http://json.schemastore.org": true
+  }
 }
